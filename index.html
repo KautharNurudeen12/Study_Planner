@@ -65,6 +65,7 @@ body{background:#eef3ef}
 .top{position:relative;overflow:hidden;padding-bottom:70px}
 .top::before{content:"";position:absolute;right:-50px;top:-50px;width:190px;height:190px;border-radius:50%;background:rgba(255,255,255,.07)}
 .top::after{content:"";position:absolute;right:60px;bottom:-60px;width:120px;height:120px;border-radius:50%;background:rgba(255,255,255,.05)}
+main{position:relative;z-index:1}
 .top h1{font-size:25px;position:relative}.top small{position:relative}
 .card{border-radius:14px;padding:18px;box-shadow:0 3px 10px rgba(20,60,35,.07)}
 .tiles{display:flex;gap:10px;margin-bottom:12px}
@@ -143,7 +144,7 @@ function home(){
  var sv=Object.keys(S.scores||{}).map(function(k){return S.scores[k]}),qs=sv.length?Math.round(sv.reduce(function(a,x){return a+x.b/x.n},0)/sv.length*100)+"%":"--";
  h+='<div class="tiles"><div class="tile"><b>'+S.classes.length+'</b>classes a week</div><div class="tile"><b>'+o.d+'/'+o.n+'</b>topics done</div><div class="tile"><b>'+qs+'</b>quiz average</div></div>';
  h+='<div class="card"><h2>Study before '+esc(c.code)+'</h2>';
- if(!tp.length)h+='<div class="mu">No topics yet. Open the Courses tab and add what you need to read for this course.</div>';
+ if(!tp.length)h+='<div class="mu">No topics yet. Open the Study tab to start a lesson, or the Progress tab to add your own topics.</div>';
  else if(!open.length)h+='<div class="mu">Every topic for this course is done.</div>';
  else open.forEach(function(x){h+='<label class="item"><input class="cb" type="checkbox" data-c="'+esc(c.code)+'" data-id="'+x.id+'"><span class="t">'+esc(x.text)+'</span></label>'});
  var hasM=(window.MATERIALS||[]).some(function(m){return m.code===c.code});
